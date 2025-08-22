@@ -10,7 +10,9 @@ df = np.read_csv()
 df['overweight'] = ((df["weight"] / df["height"]) > 25).astype(int)
 
 # 3
-
+# Normalize cholesterol and gluc columns
+df['cholesterol'] = np.where(df['cholesterol'] == 1, 0, 1)
+df['gluc'] = np.where(df['gluc'] == 1, 0, 1)
 
 # 4
 def draw_cat_plot():

@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 1
-df = None
+df = np.read_csv()
 
 # 2
-df['overweight'] = None
+df['overweight'] = ((df["weight"] / df["height"]) > 25).astype(int)
 
 # 3
 

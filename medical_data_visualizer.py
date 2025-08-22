@@ -17,11 +17,13 @@ df['gluc'] = np.where(df['gluc'] == 1, 0, 1)
 # 4
 def draw_cat_plot():
     # 5
-    df_cat = None
+    df_cat = pd.melt(df, id_vars=['id'], value_vars=['cholesterol', 'gluc', 'smoke', 'alco', 'active', 'overweight'], var_name='variable', value_name='value')
 
 
     # 6
-    df_cat = None
+    df_cat = (df_cat.groupby(['cardio', 'variable', 'value'])
+        .size()
+        .reset_index(name='total'))
     
 
     # 7
